@@ -29,7 +29,7 @@
         "signature": [
           "(source$: ",
           "Observable",
-          "<Record<string, unknown> & { type: string; }>, {\n    logger,\n    signal,\n    flushThrottleMs = 100,\n  }: { logger: Pick<",
+          "<Record<string, unknown> & { type: string; }>, {\n    logger,\n    signal,\n  }: { logger: Pick<",
           {
             "pluginId": "@kbn/logging",
             "scope": "common",
@@ -37,7 +37,8 @@
             "section": "def-common.Logger",
             "text": "Logger"
           },
-          ", \"error\" | \"debug\">; signal: AbortSignal; flushThrottleMs?: number | undefined; }) => ResponseStream"
+          ", \"error\" | \"debug\">; signal: AbortSignal; }) => ",
+          "PassThrough"
         ],
         "path": "src/platform/packages/shared/kbn-sse-utils-server/src/observable_into_event_source_stream.ts",
         "deprecated": false,
@@ -64,7 +65,7 @@
             "id": "def-common.observableIntoEventSourceStream.$2",
             "type": "Object",
             "tags": [],
-            "label": "{\n    logger,\n    signal,\n    flushThrottleMs = 100,\n  }",
+            "label": "{\n    logger,\n    signal,\n  }",
             "description": [],
             "path": "src/platform/packages/shared/kbn-sse-utils-server/src/observable_into_event_source_stream.ts",
             "deprecated": false,
@@ -141,24 +142,6 @@
                 "description": [],
                 "signature": [
                   "AbortSignal"
-                ],
-                "path": "src/platform/packages/shared/kbn-sse-utils-server/src/observable_into_event_source_stream.ts",
-                "deprecated": false,
-                "trackAdoption": false
-              },
-              {
-                "parentPluginId": "@kbn/sse-utils-server",
-                "id": "def-common.observableIntoEventSourceStream.$2.flushThrottleMs",
-                "type": "number",
-                "tags": [
-                  "default"
-                ],
-                "label": "flushThrottleMs",
-                "description": [
-                  "\nThe minimum time in milliseconds between flushes of the stream.\nThis is to avoid flushing too often if the source emits events in quick succession.\n"
-                ],
-                "signature": [
-                  "number | undefined"
                 ],
                 "path": "src/platform/packages/shared/kbn-sse-utils-server/src/observable_into_event_source_stream.ts",
                 "deprecated": false,

@@ -1,9 +1,0 @@
-{
-  "type": "shared-browser",
-  "id": "@kbn/apm-ui-shared",
-  "owner": [
-    "@elastic/obs-ux-infra_services-team"
-  ],
-  "group": "platform",
-  "visibility": "shared"
-}

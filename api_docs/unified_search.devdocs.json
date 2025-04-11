@@ -27,9 +27,9 @@
             "section": "def-public.TimefilterContract",
             "text": "TimefilterContract"
           },
-          ", coreStart: ",
-          "CoreStart",
-          ", id: string, type: string) => Promise<",
+          ", core: ",
+          "CoreSetup",
+          "<{}, unknown>, id: string, type: string) => ",
           {
             "pluginId": "uiActions",
             "scope": "public",
@@ -45,9 +45,9 @@
             "section": "def-public.ApplyGlobalFilterActionContext",
             "text": "ApplyGlobalFilterActionContext"
           },
-          ">>"
+          ">"
         ],
-        "path": "src/platform/plugins/shared/unified_search/public/index.ts",
+        "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
         "deprecated": false,
         "trackAdoption": false,
         "children": [
@@ -67,7 +67,7 @@
                 "text": "FilterManager"
               }
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/index.ts",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false,
             "isRequired": true
@@ -88,7 +88,7 @@
                 "text": "TimefilterContract"
               }
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/index.ts",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false,
             "isRequired": true
@@ -98,12 +98,13 @@
             "id": "def-public.createFilterAction.$3",
             "type": "Object",
             "tags": [],
-            "label": "coreStart",
+            "label": "core",
             "description": [],
             "signature": [
-              "CoreStart"
+              "CoreSetup",
+              "<{}, unknown>"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/index.ts",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false,
             "isRequired": true
@@ -118,7 +119,7 @@
             "signature": [
               "string"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/index.ts",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false,
             "isRequired": true
@@ -133,7 +134,7 @@
             "signature": [
               "string"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/index.ts",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false,
             "isRequired": true
@@ -705,7 +706,7 @@
                 "section": "def-public.DataViewPickerProps",
                 "text": "DataViewPickerProps"
               },
-              " | undefined; textBasedLanguageModeErrors?: Error[] | undefined; textBasedLanguageModeWarning?: string | undefined; showSubmitButton?: boolean | undefined; submitButtonStyle?: \"full\" | \"auto\" | \"iconOnly\" | undefined; suggestionsSize?: ",
+              " | undefined; textBasedLanguageModeErrors?: Error[] | undefined; textBasedLanguageModeWarning?: string | undefined; showSubmitButton?: boolean | undefined; submitButtonStyle?: \"auto\" | \"full\" | \"iconOnly\" | undefined; suggestionsSize?: ",
               "SuggestionsListSize",
               " | undefined; suggestionsAbstraction?: ",
               "SuggestionsAbstraction",
@@ -743,7 +744,7 @@
         "tags": [],
         "label": "ApplyGlobalFilterActionContext",
         "description": [],
-        "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action/apply_filter_action.tsx",
+        "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
         "deprecated": false,
         "trackAdoption": false,
         "children": [
@@ -764,7 +765,7 @@
               },
               "[]"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action/apply_filter_action.tsx",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false
           },
@@ -778,7 +779,7 @@
             "signature": [
               "string | undefined"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action/apply_filter_action.tsx",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false
           },
@@ -792,7 +793,7 @@
             "signature": [
               "unknown"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action/apply_filter_action.tsx",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false
           },
@@ -806,7 +807,7 @@
             "signature": [
               "string | undefined"
             ],
-            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action/apply_filter_action.tsx",
+            "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
             "deprecated": false,
             "trackAdoption": false
           }
@@ -1122,6 +1123,29 @@
               }
             ],
             "returnComment": []
+          },
+          {
+            "parentPluginId": "unifiedSearch",
+            "id": "def-public.DataViewPickerProps.textBasedLanguages",
+            "type": "Array",
+            "tags": [],
+            "label": "textBasedLanguages",
+            "description": [
+              "\nList of the supported text based languages (SQL, ESQL) etc.\nDefined per application, if not provided, no text based languages\nwill be available."
+            ],
+            "signature": [
+              {
+                "pluginId": "@kbn/esql-utils",
+                "scope": "common",
+                "docId": "kibKbnEsqlUtilsPluginApi",
+                "section": "def-common.TextBasedLanguages",
+                "text": "TextBasedLanguages"
+              },
+              "[] | undefined"
+            ],
+            "path": "src/platform/plugins/shared/unified_search/public/dataview_picker/data_view_picker.tsx",
+            "deprecated": false,
+            "trackAdoption": false
           },
           {
             "parentPluginId": "unifiedSearch",
@@ -2246,7 +2270,7 @@
         "signature": [
           "\"ACTION_GLOBAL_APPLY_FILTER\""
         ],
-        "path": "src/platform/plugins/shared/unified_search/public/actions/constants.ts",
+        "path": "src/platform/plugins/shared/unified_search/public/actions/apply_filter_action.ts",
         "deprecated": false,
         "trackAdoption": false,
         "initialIsOpen": false
@@ -2323,7 +2347,7 @@
         "signature": [
           "\"UPDATE_FILTER_REFERENCES_ACTION\""
         ],
-        "path": "src/platform/plugins/shared/unified_search/public/actions/constants.ts",
+        "path": "src/platform/plugins/shared/unified_search/public/actions/update_filter_references_action.ts",
         "deprecated": false,
         "trackAdoption": false,
         "initialIsOpen": false

@@ -52,9 +52,9 @@
             "signature": [
               "Omit<",
               "RouteConfig",
-              "<unknown, unknown, unknown, any>, \"validate\" | \"options\"> & { options?: Pick<",
+              "<unknown, unknown, unknown, any>, \"validate\" | \"options\"> & { options?: Omit<",
               "RouteConfigOptions",
-              "<any>, \"tags\" | \"timeout\" | \"body\" | \"authRequired\" | \"xsrfRequired\" | \"excludeFromOAS\" | \"excludeFromRateLimiter\" | \"httpResource\" | \"availability\"> | undefined; access: ",
+              "<any>, \"description\" | \"summary\" | \"deprecated\" | \"access\" | \"discontinued\"> | undefined; access: ",
               "RouteAccess",
               "; security?: ",
               "RouteSecurity",

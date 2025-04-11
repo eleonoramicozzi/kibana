@@ -1426,7 +1426,13 @@
                 "description": [],
                 "signature": [
                   "AttributeService",
-                  " | undefined"
+                  "<",
+                  "VisualizeSavedObjectAttributes",
+                  ", ",
+                  "VisualizeByValueInput",
+                  ", ",
+                  "VisualizeByReferenceInput",
+                  ", unknown> | undefined"
                 ],
                 "path": "src/platform/plugins/shared/visualizations/public/legacy/embeddable/visualize_embeddable.tsx",
                 "deprecated": false,
@@ -4081,9 +4087,7 @@
             "label": "timefilter",
             "description": [],
             "signature": [
-              "{ readonly useTimefilter: () => ",
-              "TimefilterHook",
-              "; isTimeRangeSelectorEnabled: () => boolean; isAutoRefreshSelectorEnabled: () => boolean; isTimeTouched: () => boolean; isRefreshIntervalTouched: () => boolean; getEnabledUpdated$: () => ",
+              "{ isTimeRangeSelectorEnabled: () => boolean; isAutoRefreshSelectorEnabled: () => boolean; isTimeTouched: () => boolean; isRefreshIntervalTouched: () => boolean; getEnabledUpdated$: () => ",
               "Observable",
               "<boolean>; getTimeUpdate$: () => ",
               "Observable",
@@ -5964,7 +5968,13 @@
             "text": "VisualizeInput"
           },
           " extends ",
-          "EmbeddableInput"
+          {
+            "pluginId": "embeddable",
+            "scope": "common",
+            "docId": "kibEmbeddablePluginApi",
+            "section": "def-common.EmbeddableInput",
+            "text": "EmbeddableInput"
+          }
         ],
         "path": "src/platform/plugins/shared/visualizations/public/legacy/embeddable/visualize_embeddable.tsx",
         "deprecated": false,
@@ -11699,7 +11709,7 @@
             "label": "shape",
             "description": [],
             "signature": [
-              "\"pie\" | \"donut\" | \"treemap\" | \"mosaic\" | \"waffle\""
+              "\"treemap\" | \"mosaic\" | \"waffle\" | \"pie\" | \"donut\""
             ],
             "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
             "deprecated": false,
@@ -13329,7 +13339,7 @@
             "label": "yLeftScale",
             "description": [],
             "signature": [
-              "\"log\" | \"time\" | \"linear\" | \"sqrt\" | undefined"
+              "\"log\" | \"sqrt\" | \"time\" | \"linear\" | undefined"
             ],
             "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
             "deprecated": false,
@@ -13343,7 +13353,7 @@
             "label": "yRightScale",
             "description": [],
             "signature": [
-              "\"log\" | \"time\" | \"linear\" | \"sqrt\" | undefined"
+              "\"log\" | \"sqrt\" | \"time\" | \"linear\" | undefined"
             ],
             "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
             "deprecated": false,
@@ -13571,7 +13581,7 @@
             "label": "seriesType",
             "description": [],
             "signature": [
-              "\"line\" | \"area\" | \"bar\" | \"bar_stacked\" | \"area_stacked\" | \"bar_horizontal\" | \"bar_percentage_stacked\" | \"bar_horizontal_stacked\" | \"area_percentage_stacked\" | \"bar_horizontal_percentage_stacked\""
+              "\"area\" | \"line\" | \"bar\" | \"bar_stacked\" | \"area_stacked\" | \"bar_horizontal\" | \"bar_percentage_stacked\" | \"bar_horizontal_stacked\" | \"area_percentage_stacked\" | \"bar_horizontal_percentage_stacked\""
             ],
             "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
             "deprecated": false,
@@ -13901,7 +13911,7 @@
             "label": "iconPosition",
             "description": [],
             "signature": [
-              "\"right\" | \"left\" | \"above\" | \"below\" | \"auto\" | undefined"
+              "\"right\" | \"auto\" | \"left\" | \"above\" | \"below\" | undefined"
             ],
             "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
             "deprecated": false,
@@ -14921,7 +14931,7 @@
         "label": "GaugeCentralMajorMode",
         "description": [],
         "signature": [
-          "\"none\" | \"custom\" | \"auto\""
+          "\"none\" | \"auto\" | \"custom\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
         "deprecated": false,
@@ -14951,7 +14961,7 @@
         "label": "GaugeLabelMajorMode",
         "description": [],
         "signature": [
-          "\"none\" | \"custom\" | \"auto\""
+          "\"none\" | \"auto\" | \"custom\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
         "deprecated": false,
@@ -15367,7 +15377,7 @@
         "label": "Operation",
         "description": [],
         "signature": [
-          "\"min\" | \"max\" | \"sum\" | \"median\" | \"count\" | \"filters\" | \"terms\" | \"cumulative_sum\" | \"date_histogram\" | \"range\" | \"average\" | \"percentile\" | \"counter_rate\" | \"differences\" | \"moving_average\" | \"formula\" | \"static_value\" | \"standard_deviation\" | \"unique_count\" | \"percentile_rank\" | \"last_value\" | \"normalize_by_unit\""
+          "\"min\" | \"max\" | \"sum\" | \"median\" | \"count\" | \"filters\" | \"terms\" | \"range\" | \"average\" | \"date_histogram\" | \"percentile\" | \"last_value\" | \"cumulative_sum\" | \"moving_average\" | \"unique_count\" | \"standard_deviation\" | \"percentile_rank\" | \"counter_rate\" | \"differences\" | \"formula\" | \"static_value\" | \"normalize_by_unit\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/operations.ts",
         "deprecated": false,
@@ -15382,7 +15392,7 @@
         "label": "OperationWithReferences",
         "description": [],
         "signature": [
-          "\"cumulative_sum\" | \"counter_rate\" | \"differences\" | \"moving_average\" | \"formula\" | \"static_value\" | \"normalize_by_unit\""
+          "\"cumulative_sum\" | \"moving_average\" | \"counter_rate\" | \"differences\" | \"formula\" | \"static_value\" | \"normalize_by_unit\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/operations.ts",
         "deprecated": false,
@@ -15397,7 +15407,7 @@
         "label": "OperationWithSourceField",
         "description": [],
         "signature": [
-          "\"min\" | \"max\" | \"sum\" | \"median\" | \"count\" | \"filters\" | \"terms\" | \"date_histogram\" | \"range\" | \"average\" | \"percentile\" | \"standard_deviation\" | \"unique_count\" | \"percentile_rank\" | \"last_value\""
+          "\"min\" | \"max\" | \"sum\" | \"median\" | \"count\" | \"filters\" | \"terms\" | \"range\" | \"average\" | \"date_histogram\" | \"percentile\" | \"last_value\" | \"unique_count\" | \"standard_deviation\" | \"percentile_rank\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/operations.ts",
         "deprecated": false,
@@ -15442,7 +15452,7 @@
         "label": "PartitionChartType",
         "description": [],
         "signature": [
-          "\"pie\" | \"donut\" | \"treemap\" | \"mosaic\" | \"waffle\""
+          "\"treemap\" | \"mosaic\" | \"waffle\" | \"pie\" | \"donut\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
         "deprecated": false,
@@ -15681,7 +15691,7 @@
         "label": "SeriesType",
         "description": [],
         "signature": [
-          "\"line\" | \"area\" | \"bar\" | \"bar_stacked\" | \"area_stacked\" | \"bar_horizontal\" | \"bar_percentage_stacked\" | \"bar_horizontal_stacked\" | \"area_percentage_stacked\" | \"bar_horizontal_percentage_stacked\""
+          "\"area\" | \"line\" | \"bar\" | \"bar_stacked\" | \"area_stacked\" | \"bar_horizontal\" | \"bar_percentage_stacked\" | \"bar_horizontal_stacked\" | \"area_percentage_stacked\" | \"bar_horizontal_percentage_stacked\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
         "deprecated": false,
@@ -15999,7 +16009,7 @@
         "label": "YAxisMode",
         "description": [],
         "signature": [
-          "\"right\" | \"bottom\" | \"left\" | \"auto\""
+          "\"right\" | \"bottom\" | \"auto\" | \"left\""
         ],
         "path": "src/platform/plugins/shared/visualizations/common/convert_to_lens/types/configurations.ts",
         "deprecated": false,

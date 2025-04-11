@@ -34,8 +34,6 @@ steps:
           machineType: n2-standard-2
         timeout_in_minutes: 5
 
-      - wait: ~
-
       - command: .buildkite/scripts/steps/build_kibana.sh
         label: Build Kibana Distribution
         agents:
@@ -47,11 +45,12 @@ steps:
           diskSizeGb: 125
         if: "build.env('KIBANA_BUILD_ID') == null || build.env('KIBANA_BUILD_ID') == ''"
         timeout_in_minutes: 90
-        key: build
         retry:
           automatic:
             - exit_status: '-1'
               limit: 3
+
+      - wait: ~
 
       - command: .buildkite/scripts/steps/cloud/build_and_deploy.sh
         label: 'Build and Deploy to Cloud'
@@ -62,7 +61,6 @@ steps:
           machineType: n2-standard-2
           preemptible: true
         timeout_in_minutes: 30
-        depends_on: build
         retry:
           automatic:
             - exit_status: '-1'

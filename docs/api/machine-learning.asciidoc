@@ -1,0 +1,4 @@
+[[machine-learning-api]]
+== {ml-cap} APIs
+
+For the latest details, refer to {api-kibana}/group/endpoint-ml[machine learning APIs].

@@ -330,23 +330,14 @@
         "label": "createFunctionRequestMessage",
         "description": [],
         "signature": [
-          "({\n  name,\n  args,\n}: { name: string; args?: Record<string, any> | undefined; }) => { message: ",
+          "({\n  name,\n  args,\n}: { name: string; args?: Record<string, any> | undefined; }) => ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
-          },
-          "; id: string; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".MessageAdd; }"
+            "section": "def-common.MessageAddEvent",
+            "text": "MessageAddEvent"
+          }
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/utils/create_function_request_message.ts",
         "deprecated": false,
@@ -402,23 +393,14 @@
         "label": "createFunctionResponseMessage",
         "description": [],
         "signature": [
-          "({\n  name,\n  content,\n  data,\n}: { name: string; content: unknown; data?: unknown; }) => { message: ",
+          "({\n  name,\n  content,\n  data,\n}: { name: string; content: unknown; data?: unknown; }) => ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
-          },
-          "; id: string; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".MessageAdd; }"
+            "section": "def-common.MessageAddEvent",
+            "text": "MessageAddEvent"
+          }
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/utils/create_function_response_message.ts",
         "deprecated": false,
@@ -941,20 +923,6 @@
             "tags": [],
             "label": "public",
             "description": [],
-            "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
-            "deprecated": false,
-            "trackAdoption": false
-          },
-          {
-            "parentPluginId": "observabilityAIAssistant",
-            "id": "def-public.Conversation.archived",
-            "type": "CompoundType",
-            "tags": [],
-            "label": "archived",
-            "description": [],
-            "signature": [
-              "boolean | undefined"
-            ],
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
             "deprecated": false,
             "trackAdoption": false
@@ -1635,9 +1603,9 @@
                 "section": "def-common.Message",
                 "text": "Message"
               },
-              "[]; persist: boolean; disableFunctions: boolean | { except: string[]; }; signal: AbortSignal; instructions?: (string | ",
-              "Instruction",
-              ")[] | undefined; scopes: ",
+              "[]; persist: boolean; disableFunctions: boolean | { except: string[]; }; signal: AbortSignal; instructions?: ",
+              "AdHocInstruction",
+              "[] | undefined; scopes: ",
               {
                 "pluginId": "@kbn/ai-assistant-common",
                 "scope": "common",
@@ -1797,9 +1765,8 @@
                     "label": "instructions",
                     "description": [],
                     "signature": [
-                      "(string | ",
-                      "Instruction",
-                      ")[] | undefined"
+                      "AdHocInstruction",
+                      "[] | undefined"
                     ],
                     "path": "x-pack/platform/plugins/shared/observability_ai_assistant/public/types.ts",
                     "deprecated": false,
@@ -2208,7 +2175,7 @@
             "label": "callApi",
             "description": [],
             "signature": [
-              "<TEndpoint extends \"POST /internal/observability_ai_assistant/index_assets\" | \"POST /internal/observability_ai_assistant/chat\" | \"POST /internal/observability_ai_assistant/chat/recall\" | \"POST /internal/observability_ai_assistant/chat/complete\" | \"POST /api/observability_ai_assistant/chat/complete 2023-10-31\" | \"GET /internal/observability_ai_assistant/conversation/{conversationId}\" | \"POST /internal/observability_ai_assistant/conversations\" | \"POST /internal/observability_ai_assistant/conversation\" | \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\" | \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\" | \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\" | \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\" | \"GET /internal/observability_ai_assistant/connectors\" | \"GET /internal/observability_ai_assistant/functions\" | \"POST /internal/observability_ai_assistant/functions/recall\" | \"POST /internal/observability_ai_assistant/functions/summarize\" | \"GET /internal/observability_ai_assistant/functions/get_dataset_info\" | \"POST /internal/observability_ai_assistant/kb/reindex\" | \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\" | \"POST /internal/observability_ai_assistant/kb/setup\" | \"POST /internal/observability_ai_assistant/kb/reset\" | \"GET /internal/observability_ai_assistant/kb/status\" | \"GET /internal/observability_ai_assistant/kb/entries\" | \"PUT /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/import\" | \"GET /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/save\" | \"DELETE /internal/observability_ai_assistant/kb/entries/{entryId}\">(endpoint: TEndpoint, ...args: MaybeOptionalArgs<",
+              "<TEndpoint extends \"POST /internal/observability_ai_assistant/index_assets\" | \"POST /internal/observability_ai_assistant/chat\" | \"POST /internal/observability_ai_assistant/chat/recall\" | \"POST /internal/observability_ai_assistant/chat/complete\" | \"POST /api/observability_ai_assistant/chat/complete 2023-10-31\" | \"GET /internal/observability_ai_assistant/conversation/{conversationId}\" | \"POST /internal/observability_ai_assistant/conversations\" | \"POST /internal/observability_ai_assistant/conversation\" | \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\" | \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\" | \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\" | \"GET /internal/observability_ai_assistant/connectors\" | \"GET /internal/observability_ai_assistant/functions\" | \"POST /internal/observability_ai_assistant/functions/recall\" | \"POST /internal/observability_ai_assistant/functions/summarize\" | \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\" | \"POST /internal/observability_ai_assistant/kb/setup\" | \"POST /internal/observability_ai_assistant/kb/reset\" | \"GET /internal/observability_ai_assistant/kb/status\" | \"GET /internal/observability_ai_assistant/kb/entries\" | \"PUT /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/import\" | \"GET /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/save\" | \"DELETE /internal/observability_ai_assistant/kb/entries/{entryId}\">(endpoint: TEndpoint, ...args: MaybeOptionalArgs<",
               {
                 "pluginId": "@kbn/server-route-repository-utils",
                 "scope": "common",
@@ -2490,19 +2457,13 @@
               },
               "<\"GET /internal/observability_ai_assistant/kb/status\", undefined, ",
               "ObservabilityAIAssistantRouteHandlerResources",
-              ", { errorMessage?: string | undefined; enabled: boolean; endpoint?: Partial<",
+              ", { errorMessage?: string | undefined; ready: boolean; enabled: boolean; endpoint?: Partial<",
               "InferenceInferenceEndpointInfo",
-              "> | undefined; modelStats?: Partial<",
-              "MlTrainedModelStats",
-              "> | undefined; kbState: ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.KnowledgeBaseState",
-                "text": "KnowledgeBaseState"
-              },
-              "; }, ",
+              "> | undefined; model_stats?: { deployment_state?: ",
+              "MlDeploymentAssignmentState",
+              " | undefined; allocation_state?: ",
+              "MlDeploymentAllocationState",
+              " | undefined; allocation_count?: number | undefined; } | undefined; }, ",
               "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"POST /internal/observability_ai_assistant/kb/reset\": ",
               {
@@ -2536,7 +2497,7 @@
               "InferenceInferenceEndpointInfo",
               ", ",
               "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\": ",
+              ">; \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\": ",
               {
                 "pluginId": "@kbn/server-route-repository-utils",
                 "scope": "common",
@@ -2544,41 +2505,9 @@
                 "section": "def-common.ServerRoute",
                 "text": "ServerRoute"
               },
-              "<\"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\", undefined, ",
+              "<\"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\", undefined, ",
               "ObservabilityAIAssistantRouteHandlerResources",
               ", void, ",
-              "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"POST /internal/observability_ai_assistant/kb/reindex\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"POST /internal/observability_ai_assistant/kb/reindex\", undefined, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", { result: boolean; }, ",
-              "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"GET /internal/observability_ai_assistant/functions/get_dataset_info\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"GET /internal/observability_ai_assistant/functions/get_dataset_info\", ",
-              "TypeC",
-              "<{ query: ",
-              "TypeC",
-              "<{ index: ",
-              "StringC",
-              "; connectorId: ",
-              "StringC",
-              "; }>; }>, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", { indices: string[]; fields: never[]; stats?: undefined; } | { indices: string[]; fields: string[]; stats: { analyzed: number; total: number; }; }, ",
               "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"POST /internal/observability_ai_assistant/functions/summarize\": ",
               {
@@ -2738,64 +2667,6 @@
               },
               "[], ",
               "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\", ",
-              "TypeC",
-              "<{ path: ",
-              "TypeC",
-              "<{ conversationId: ",
-              "StringC",
-              "; }>; body: ",
-              "PartialC",
-              "<{ public: ",
-              "BooleanC",
-              "; archived: ",
-              "BooleanC",
-              "; }>; }>, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Conversation",
-                "text": "Conversation"
-              },
-              ", ",
-              "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\", ",
-              "TypeC",
-              "<{ path: ",
-              "TypeC",
-              "<{ conversationId: ",
-              "StringC",
-              "; }>; }>, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Conversation",
-                "text": "Conversation"
-              },
-              ", ",
-              "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\": ",
               {
                 "pluginId": "@kbn/server-route-repository-utils",
@@ -2813,6 +2684,36 @@
               "; }>; }>, ",
               "ObservabilityAIAssistantRouteHandlerResources",
               ", void, ",
+              "ObservabilityAIAssistantRouteCreateOptions",
+              ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\": ",
+              {
+                "pluginId": "@kbn/server-route-repository-utils",
+                "scope": "common",
+                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
+                "section": "def-common.ServerRoute",
+                "text": "ServerRoute"
+              },
+              "<\"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\", ",
+              "TypeC",
+              "<{ path: ",
+              "TypeC",
+              "<{ conversationId: ",
+              "StringC",
+              "; }>; body: ",
+              "TypeC",
+              "<{ title: ",
+              "StringC",
+              "; }>; }>, ",
+              "ObservabilityAIAssistantRouteHandlerResources",
+              ", ",
+              {
+                "pluginId": "observabilityAIAssistant",
+                "scope": "common",
+                "docId": "kibObservabilityAIAssistantPluginApi",
+                "section": "def-common.Conversation",
+                "text": "Conversation"
+              },
+              ", ",
               "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\": ",
               {
@@ -2985,16 +2886,22 @@
               ">; }>]>; instructions: ",
               "ArrayC",
               "<",
-              "UnionC",
+              "IntersectionC",
               "<[",
-              "StringC",
-              ", ",
-              "TypeC",
+              "PartialC",
               "<{ id: ",
               "StringC",
-              "; text: ",
+              "; }>, ",
+              "TypeC",
+              "<{ text: ",
               "StringC",
-              "; }>]>>; }>]>; }>, ",
+              "; instruction_type: ",
+              "UnionC",
+              "<[",
+              "LiteralC",
+              "<\"user_instruction\">, ",
+              "LiteralC",
+              "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
               "PartialC",
               "<{ body: ",
               "PartialC",
@@ -3085,16 +2992,22 @@
               ">; }>]>; instructions: ",
               "ArrayC",
               "<",
-              "UnionC",
+              "IntersectionC",
               "<[",
-              "StringC",
-              ", ",
-              "TypeC",
+              "PartialC",
               "<{ id: ",
               "StringC",
-              "; text: ",
+              "; }>, ",
+              "TypeC",
+              "<{ text: ",
               "StringC",
-              "; }>]>>; }>]>; }>, ",
+              "; instruction_type: ",
+              "UnionC",
+              "<[",
+              "LiteralC",
+              "<\"user_instruction\">, ",
+              "LiteralC",
+              "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
               "TypeC",
               "<{ body: ",
               "TypeC",
@@ -3526,19 +3439,13 @@
               },
               "<\"GET /internal/observability_ai_assistant/kb/status\", undefined, ",
               "ObservabilityAIAssistantRouteHandlerResources",
-              ", { errorMessage?: string | undefined; enabled: boolean; endpoint?: Partial<",
+              ", { errorMessage?: string | undefined; ready: boolean; enabled: boolean; endpoint?: Partial<",
               "InferenceInferenceEndpointInfo",
-              "> | undefined; modelStats?: Partial<",
-              "MlTrainedModelStats",
-              "> | undefined; kbState: ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.KnowledgeBaseState",
-                "text": "KnowledgeBaseState"
-              },
-              "; }, ",
+              "> | undefined; model_stats?: { deployment_state?: ",
+              "MlDeploymentAssignmentState",
+              " | undefined; allocation_state?: ",
+              "MlDeploymentAllocationState",
+              " | undefined; allocation_count?: number | undefined; } | undefined; }, ",
               "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"POST /internal/observability_ai_assistant/kb/reset\": ",
               {
@@ -3572,7 +3479,7 @@
               "InferenceInferenceEndpointInfo",
               ", ",
               "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\": ",
+              ">; \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\": ",
               {
                 "pluginId": "@kbn/server-route-repository-utils",
                 "scope": "common",
@@ -3580,41 +3487,9 @@
                 "section": "def-common.ServerRoute",
                 "text": "ServerRoute"
               },
-              "<\"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\", undefined, ",
+              "<\"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\", undefined, ",
               "ObservabilityAIAssistantRouteHandlerResources",
               ", void, ",
-              "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"POST /internal/observability_ai_assistant/kb/reindex\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"POST /internal/observability_ai_assistant/kb/reindex\", undefined, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", { result: boolean; }, ",
-              "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"GET /internal/observability_ai_assistant/functions/get_dataset_info\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"GET /internal/observability_ai_assistant/functions/get_dataset_info\", ",
-              "TypeC",
-              "<{ query: ",
-              "TypeC",
-              "<{ index: ",
-              "StringC",
-              "; connectorId: ",
-              "StringC",
-              "; }>; }>, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", { indices: string[]; fields: never[]; stats?: undefined; } | { indices: string[]; fields: string[]; stats: { analyzed: number; total: number; }; }, ",
               "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"POST /internal/observability_ai_assistant/functions/summarize\": ",
               {
@@ -3774,64 +3649,6 @@
               },
               "[], ",
               "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\", ",
-              "TypeC",
-              "<{ path: ",
-              "TypeC",
-              "<{ conversationId: ",
-              "StringC",
-              "; }>; body: ",
-              "PartialC",
-              "<{ public: ",
-              "BooleanC",
-              "; archived: ",
-              "BooleanC",
-              "; }>; }>, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Conversation",
-                "text": "Conversation"
-              },
-              ", ",
-              "ObservabilityAIAssistantRouteCreateOptions",
-              ">; \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\": ",
-              {
-                "pluginId": "@kbn/server-route-repository-utils",
-                "scope": "common",
-                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-                "section": "def-common.ServerRoute",
-                "text": "ServerRoute"
-              },
-              "<\"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\", ",
-              "TypeC",
-              "<{ path: ",
-              "TypeC",
-              "<{ conversationId: ",
-              "StringC",
-              "; }>; }>, ",
-              "ObservabilityAIAssistantRouteHandlerResources",
-              ", ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Conversation",
-                "text": "Conversation"
-              },
-              ", ",
-              "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\": ",
               {
                 "pluginId": "@kbn/server-route-repository-utils",
@@ -3849,6 +3666,36 @@
               "; }>; }>, ",
               "ObservabilityAIAssistantRouteHandlerResources",
               ", void, ",
+              "ObservabilityAIAssistantRouteCreateOptions",
+              ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\": ",
+              {
+                "pluginId": "@kbn/server-route-repository-utils",
+                "scope": "common",
+                "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
+                "section": "def-common.ServerRoute",
+                "text": "ServerRoute"
+              },
+              "<\"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\", ",
+              "TypeC",
+              "<{ path: ",
+              "TypeC",
+              "<{ conversationId: ",
+              "StringC",
+              "; }>; body: ",
+              "TypeC",
+              "<{ title: ",
+              "StringC",
+              "; }>; }>, ",
+              "ObservabilityAIAssistantRouteHandlerResources",
+              ", ",
+              {
+                "pluginId": "observabilityAIAssistant",
+                "scope": "common",
+                "docId": "kibObservabilityAIAssistantPluginApi",
+                "section": "def-common.Conversation",
+                "text": "Conversation"
+              },
+              ", ",
               "ObservabilityAIAssistantRouteCreateOptions",
               ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\": ",
               {
@@ -4021,16 +3868,22 @@
               ">; }>]>; instructions: ",
               "ArrayC",
               "<",
-              "UnionC",
+              "IntersectionC",
               "<[",
-              "StringC",
-              ", ",
-              "TypeC",
+              "PartialC",
               "<{ id: ",
               "StringC",
-              "; text: ",
+              "; }>, ",
+              "TypeC",
+              "<{ text: ",
               "StringC",
-              "; }>]>>; }>]>; }>, ",
+              "; instruction_type: ",
+              "UnionC",
+              "<[",
+              "LiteralC",
+              "<\"user_instruction\">, ",
+              "LiteralC",
+              "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
               "PartialC",
               "<{ body: ",
               "PartialC",
@@ -4121,16 +3974,22 @@
               ">; }>]>; instructions: ",
               "ArrayC",
               "<",
-              "UnionC",
+              "IntersectionC",
               "<[",
-              "StringC",
-              ", ",
-              "TypeC",
+              "PartialC",
               "<{ id: ",
               "StringC",
-              "; text: ",
+              "; }>, ",
+              "TypeC",
+              "<{ text: ",
               "StringC",
-              "; }>]>>; }>]>; }>, ",
+              "; instruction_type: ",
+              "UnionC",
+              "<[",
+              "LiteralC",
+              "<\"user_instruction\">, ",
+              "LiteralC",
+              "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
               "TypeC",
               "<{ body: ",
               "TypeC",
@@ -4524,23 +4383,15 @@
             "signature": [
               "(callback: () => void) => Promise<",
               "Observable",
-              "<{ message: ",
+              "<",
               {
                 "pluginId": "observabilityAIAssistant",
                 "scope": "common",
                 "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Message",
-                "text": "Message"
+                "section": "def-common.MessageAddEvent",
+                "text": "MessageAddEvent"
               },
-              "; id: string; } & { type: ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.StreamingChatResponseEventType",
-                "text": "StreamingChatResponseEventType"
-              },
-              ".MessageAdd; }>>"
+              ">>"
             ],
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/public/types.ts",
             "deprecated": false,
@@ -4776,7 +4627,7 @@
                 "section": "def-common.Message",
                 "text": "Message"
               },
-              "[], onError?: ((error: any) => void) | undefined) => void"
+              "[]) => void"
             ],
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/public/hooks/use_chat.ts",
             "deprecated": false,
@@ -4803,21 +4654,6 @@
                 "deprecated": false,
                 "trackAdoption": false,
                 "isRequired": true
-              },
-              {
-                "parentPluginId": "observabilityAIAssistant",
-                "id": "def-public.UseChatResult.next.$2",
-                "type": "Function",
-                "tags": [],
-                "label": "onError",
-                "description": [],
-                "signature": [
-                  "((error: any) => void) | undefined"
-                ],
-                "path": "x-pack/platform/plugins/shared/observability_ai_assistant/public/hooks/use_chat.ts",
-                "deprecated": false,
-                "trackAdoption": false,
-                "isRequired": false
               }
             ],
             "returnComment": []
@@ -4869,18 +4705,6 @@
       },
       {
         "parentPluginId": "observabilityAIAssistant",
-        "id": "def-public.ConversationAccess",
-        "type": "Enum",
-        "tags": [],
-        "label": "ConversationAccess",
-        "description": [],
-        "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
-        "deprecated": false,
-        "trackAdoption": false,
-        "initialIsOpen": false
-      },
-      {
-        "parentPluginId": "observabilityAIAssistant",
         "id": "def-public.FunctionVisibility",
         "type": "Enum",
         "tags": [],
@@ -4897,18 +4721,6 @@
         "type": "Enum",
         "tags": [],
         "label": "KnowledgeBaseEntryRole",
-        "description": [],
-        "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
-        "deprecated": false,
-        "trackAdoption": false,
-        "initialIsOpen": false
-      },
-      {
-        "parentPluginId": "observabilityAIAssistant",
-        "id": "def-public.KnowledgeBaseState",
-        "type": "Enum",
-        "tags": [],
-        "label": "KnowledgeBaseState",
         "description": [],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
         "deprecated": false,
@@ -5334,19 +5146,13 @@
           },
           "<\"GET /internal/observability_ai_assistant/kb/status\", undefined, ",
           "ObservabilityAIAssistantRouteHandlerResources",
-          ", { errorMessage?: string | undefined; enabled: boolean; endpoint?: Partial<",
+          ", { errorMessage?: string | undefined; ready: boolean; enabled: boolean; endpoint?: Partial<",
           "InferenceInferenceEndpointInfo",
-          "> | undefined; modelStats?: Partial<",
-          "MlTrainedModelStats",
-          "> | undefined; kbState: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.KnowledgeBaseState",
-            "text": "KnowledgeBaseState"
-          },
-          "; }, ",
+          "> | undefined; model_stats?: { deployment_state?: ",
+          "MlDeploymentAssignmentState",
+          " | undefined; allocation_state?: ",
+          "MlDeploymentAllocationState",
+          " | undefined; allocation_count?: number | undefined; } | undefined; }, ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"POST /internal/observability_ai_assistant/kb/reset\": ",
           {
@@ -5380,7 +5186,7 @@
           "InferenceInferenceEndpointInfo",
           ", ",
           "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\": ",
+          ">; \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\": ",
           {
             "pluginId": "@kbn/server-route-repository-utils",
             "scope": "common",
@@ -5388,41 +5194,9 @@
             "section": "def-common.ServerRoute",
             "text": "ServerRoute"
           },
-          "<\"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\", undefined, ",
+          "<\"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\", undefined, ",
           "ObservabilityAIAssistantRouteHandlerResources",
           ", void, ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/kb/reindex\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"POST /internal/observability_ai_assistant/kb/reindex\", undefined, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", { result: boolean; }, ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"GET /internal/observability_ai_assistant/functions/get_dataset_info\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"GET /internal/observability_ai_assistant/functions/get_dataset_info\", ",
-          "TypeC",
-          "<{ query: ",
-          "TypeC",
-          "<{ index: ",
-          "StringC",
-          "; connectorId: ",
-          "StringC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", { indices: string[]; fields: never[]; stats?: undefined; } | { indices: string[]; fields: string[]; stats: { analyzed: number; total: number; }; }, ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"POST /internal/observability_ai_assistant/functions/summarize\": ",
           {
@@ -5582,64 +5356,6 @@
           },
           "[], ",
           "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\", ",
-          "TypeC",
-          "<{ path: ",
-          "TypeC",
-          "<{ conversationId: ",
-          "StringC",
-          "; }>; body: ",
-          "PartialC",
-          "<{ public: ",
-          "BooleanC",
-          "; archived: ",
-          "BooleanC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Conversation",
-            "text": "Conversation"
-          },
-          ", ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\", ",
-          "TypeC",
-          "<{ path: ",
-          "TypeC",
-          "<{ conversationId: ",
-          "StringC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Conversation",
-            "text": "Conversation"
-          },
-          ", ",
-          "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\": ",
           {
             "pluginId": "@kbn/server-route-repository-utils",
@@ -5657,6 +5373,36 @@
           "; }>; }>, ",
           "ObservabilityAIAssistantRouteHandlerResources",
           ", void, ",
+          "ObservabilityAIAssistantRouteCreateOptions",
+          ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\": ",
+          {
+            "pluginId": "@kbn/server-route-repository-utils",
+            "scope": "common",
+            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
+            "section": "def-common.ServerRoute",
+            "text": "ServerRoute"
+          },
+          "<\"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\", ",
+          "TypeC",
+          "<{ path: ",
+          "TypeC",
+          "<{ conversationId: ",
+          "StringC",
+          "; }>; body: ",
+          "TypeC",
+          "<{ title: ",
+          "StringC",
+          "; }>; }>, ",
+          "ObservabilityAIAssistantRouteHandlerResources",
+          ", ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.Conversation",
+            "text": "Conversation"
+          },
+          ", ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\": ",
           {
@@ -5829,16 +5575,22 @@
           ">; }>]>; instructions: ",
           "ArrayC",
           "<",
-          "UnionC",
+          "IntersectionC",
           "<[",
-          "StringC",
-          ", ",
-          "TypeC",
+          "PartialC",
           "<{ id: ",
           "StringC",
-          "; text: ",
+          "; }>, ",
+          "TypeC",
+          "<{ text: ",
           "StringC",
-          "; }>]>>; }>]>; }>, ",
+          "; instruction_type: ",
+          "UnionC",
+          "<[",
+          "LiteralC",
+          "<\"user_instruction\">, ",
+          "LiteralC",
+          "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
           "PartialC",
           "<{ body: ",
           "PartialC",
@@ -5929,16 +5681,22 @@
           ">; }>]>; instructions: ",
           "ArrayC",
           "<",
-          "UnionC",
+          "IntersectionC",
           "<[",
-          "StringC",
-          ", ",
-          "TypeC",
+          "PartialC",
           "<{ id: ",
           "StringC",
-          "; text: ",
+          "; }>, ",
+          "TypeC",
+          "<{ text: ",
           "StringC",
-          "; }>]>>; }>]>; }>, ",
+          "; instruction_type: ",
+          "UnionC",
+          "<[",
+          "LiteralC",
+          "<\"user_instruction\">, ",
+          "LiteralC",
+          "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
           "TypeC",
           "<{ body: ",
           "TypeC",
@@ -6178,7 +5936,7 @@
         "label": "ChatCompletionChunkEvent",
         "description": [],
         "signature": [
-          "{ id: string; message: { content?: string | undefined; function_call?: { name?: string | undefined; arguments?: string | undefined; } | undefined; }; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -6186,7 +5944,7 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".ChatCompletionChunk; }"
+          ".ChatCompletionChunk; } & { id: string; message: { content?: string | undefined; function_call?: { name?: string | undefined; arguments?: string | undefined; } | undefined; }; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -6591,19 +6349,13 @@
           },
           "<\"GET /internal/observability_ai_assistant/kb/status\", undefined, ",
           "ObservabilityAIAssistantRouteHandlerResources",
-          ", { errorMessage?: string | undefined; enabled: boolean; endpoint?: Partial<",
+          ", { errorMessage?: string | undefined; ready: boolean; enabled: boolean; endpoint?: Partial<",
           "InferenceInferenceEndpointInfo",
-          "> | undefined; modelStats?: Partial<",
-          "MlTrainedModelStats",
-          "> | undefined; kbState: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.KnowledgeBaseState",
-            "text": "KnowledgeBaseState"
-          },
-          "; }, ",
+          "> | undefined; model_stats?: { deployment_state?: ",
+          "MlDeploymentAssignmentState",
+          " | undefined; allocation_state?: ",
+          "MlDeploymentAllocationState",
+          " | undefined; allocation_count?: number | undefined; } | undefined; }, ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"POST /internal/observability_ai_assistant/kb/reset\": ",
           {
@@ -6637,7 +6389,7 @@
           "InferenceInferenceEndpointInfo",
           ", ",
           "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\": ",
+          ">; \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\": ",
           {
             "pluginId": "@kbn/server-route-repository-utils",
             "scope": "common",
@@ -6645,41 +6397,9 @@
             "section": "def-common.ServerRoute",
             "text": "ServerRoute"
           },
-          "<\"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\", undefined, ",
+          "<\"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\", undefined, ",
           "ObservabilityAIAssistantRouteHandlerResources",
           ", void, ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/kb/reindex\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"POST /internal/observability_ai_assistant/kb/reindex\", undefined, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", { result: boolean; }, ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"GET /internal/observability_ai_assistant/functions/get_dataset_info\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"GET /internal/observability_ai_assistant/functions/get_dataset_info\", ",
-          "TypeC",
-          "<{ query: ",
-          "TypeC",
-          "<{ index: ",
-          "StringC",
-          "; connectorId: ",
-          "StringC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", { indices: string[]; fields: never[]; stats?: undefined; } | { indices: string[]; fields: string[]; stats: { analyzed: number; total: number; }; }, ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"POST /internal/observability_ai_assistant/functions/summarize\": ",
           {
@@ -6839,64 +6559,6 @@
           },
           "[], ",
           "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\", ",
-          "TypeC",
-          "<{ path: ",
-          "TypeC",
-          "<{ conversationId: ",
-          "StringC",
-          "; }>; body: ",
-          "PartialC",
-          "<{ public: ",
-          "BooleanC",
-          "; archived: ",
-          "BooleanC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Conversation",
-            "text": "Conversation"
-          },
-          ", ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\", ",
-          "TypeC",
-          "<{ path: ",
-          "TypeC",
-          "<{ conversationId: ",
-          "StringC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Conversation",
-            "text": "Conversation"
-          },
-          ", ",
-          "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\": ",
           {
             "pluginId": "@kbn/server-route-repository-utils",
@@ -6914,6 +6576,36 @@
           "; }>; }>, ",
           "ObservabilityAIAssistantRouteHandlerResources",
           ", void, ",
+          "ObservabilityAIAssistantRouteCreateOptions",
+          ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\": ",
+          {
+            "pluginId": "@kbn/server-route-repository-utils",
+            "scope": "common",
+            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
+            "section": "def-common.ServerRoute",
+            "text": "ServerRoute"
+          },
+          "<\"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\", ",
+          "TypeC",
+          "<{ path: ",
+          "TypeC",
+          "<{ conversationId: ",
+          "StringC",
+          "; }>; body: ",
+          "TypeC",
+          "<{ title: ",
+          "StringC",
+          "; }>; }>, ",
+          "ObservabilityAIAssistantRouteHandlerResources",
+          ", ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.Conversation",
+            "text": "Conversation"
+          },
+          ", ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\": ",
           {
@@ -7086,16 +6778,22 @@
           ">; }>]>; instructions: ",
           "ArrayC",
           "<",
-          "UnionC",
+          "IntersectionC",
           "<[",
-          "StringC",
-          ", ",
-          "TypeC",
+          "PartialC",
           "<{ id: ",
           "StringC",
-          "; text: ",
+          "; }>, ",
+          "TypeC",
+          "<{ text: ",
           "StringC",
-          "; }>]>>; }>]>; }>, ",
+          "; instruction_type: ",
+          "UnionC",
+          "<[",
+          "LiteralC",
+          "<\"user_instruction\">, ",
+          "LiteralC",
+          "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
           "PartialC",
           "<{ body: ",
           "PartialC",
@@ -7186,16 +6884,22 @@
           ">; }>]>; instructions: ",
           "ArrayC",
           "<",
-          "UnionC",
+          "IntersectionC",
           "<[",
-          "StringC",
-          ", ",
-          "TypeC",
+          "PartialC",
           "<{ id: ",
           "StringC",
-          "; text: ",
+          "; }>, ",
+          "TypeC",
+          "<{ text: ",
           "StringC",
-          "; }>]>>; }>]>; }>, ",
+          "; instruction_type: ",
+          "UnionC",
+          "<[",
+          "LiteralC",
+          "<\"user_instruction\">, ",
+          "LiteralC",
+          "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
           "TypeC",
           "<{ body: ",
           "TypeC",
@@ -7390,7 +7094,7 @@
         "label": "ObservabilityAIAssistantAPIEndpoint",
         "description": [],
         "signature": [
-          "\"POST /internal/observability_ai_assistant/index_assets\" | \"POST /internal/observability_ai_assistant/chat\" | \"POST /internal/observability_ai_assistant/chat/recall\" | \"POST /internal/observability_ai_assistant/chat/complete\" | \"POST /api/observability_ai_assistant/chat/complete 2023-10-31\" | \"GET /internal/observability_ai_assistant/conversation/{conversationId}\" | \"POST /internal/observability_ai_assistant/conversations\" | \"POST /internal/observability_ai_assistant/conversation\" | \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\" | \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\" | \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\" | \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\" | \"GET /internal/observability_ai_assistant/connectors\" | \"GET /internal/observability_ai_assistant/functions\" | \"POST /internal/observability_ai_assistant/functions/recall\" | \"POST /internal/observability_ai_assistant/functions/summarize\" | \"GET /internal/observability_ai_assistant/functions/get_dataset_info\" | \"POST /internal/observability_ai_assistant/kb/reindex\" | \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\" | \"POST /internal/observability_ai_assistant/kb/setup\" | \"POST /internal/observability_ai_assistant/kb/reset\" | \"GET /internal/observability_ai_assistant/kb/status\" | \"GET /internal/observability_ai_assistant/kb/entries\" | \"PUT /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/import\" | \"GET /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/save\" | \"DELETE /internal/observability_ai_assistant/kb/entries/{entryId}\""
+          "\"POST /internal/observability_ai_assistant/index_assets\" | \"POST /internal/observability_ai_assistant/chat\" | \"POST /internal/observability_ai_assistant/chat/recall\" | \"POST /internal/observability_ai_assistant/chat/complete\" | \"POST /api/observability_ai_assistant/chat/complete 2023-10-31\" | \"GET /internal/observability_ai_assistant/conversation/{conversationId}\" | \"POST /internal/observability_ai_assistant/conversations\" | \"POST /internal/observability_ai_assistant/conversation\" | \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\" | \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\" | \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\" | \"GET /internal/observability_ai_assistant/connectors\" | \"GET /internal/observability_ai_assistant/functions\" | \"POST /internal/observability_ai_assistant/functions/recall\" | \"POST /internal/observability_ai_assistant/functions/summarize\" | \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\" | \"POST /internal/observability_ai_assistant/kb/setup\" | \"POST /internal/observability_ai_assistant/kb/reset\" | \"GET /internal/observability_ai_assistant/kb/status\" | \"GET /internal/observability_ai_assistant/kb/entries\" | \"PUT /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/import\" | \"GET /internal/observability_ai_assistant/kb/user_instructions\" | \"POST /internal/observability_ai_assistant/kb/entries/save\" | \"DELETE /internal/observability_ai_assistant/kb/entries/{entryId}\""
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/public/api/index.ts",
         "deprecated": false,
@@ -7829,23 +7533,23 @@
                   "section": "def-public.ObservabilityAIAssistantChatService",
                   "text": "ObservabilityAIAssistantChatService"
                 },
-                "; persist: boolean; disableFunctions?: boolean | undefined; onConversationUpdate?: ((event: ({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+                "; persist: boolean; disableFunctions?: boolean | undefined; onConversationUpdate?: ((event: ",
                 {
                   "pluginId": "observabilityAIAssistant",
                   "scope": "common",
                   "docId": "kibObservabilityAIAssistantPluginApi",
-                  "section": "def-common.StreamingChatResponseEventType",
-                  "text": "StreamingChatResponseEventType"
+                  "section": "def-common.ConversationCreateEvent",
+                  "text": "ConversationCreateEvent"
                 },
-                ".ConversationCreate; }) | ({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+                " | ",
                 {
                   "pluginId": "observabilityAIAssistant",
                   "scope": "common",
                   "docId": "kibObservabilityAIAssistantPluginApi",
-                  "section": "def-common.StreamingChatResponseEventType",
-                  "text": "StreamingChatResponseEventType"
+                  "section": "def-common.ConversationUpdateEvent",
+                  "text": "ConversationUpdateEvent"
                 },
-                ".ConversationUpdate; })) => void) | undefined; onChatComplete?: ((messages: ",
+                ") => void) | undefined; onChatComplete?: ((messages: ",
                 {
                   "pluginId": "observabilityAIAssistant",
                   "scope": "common",
@@ -8390,7 +8094,7 @@
             "label": "complete",
             "description": [],
             "signature": [
-              "({ functionClient, connectorId, simulateFunctionCalling, userInstructions: apiUserInstructions, messages: initialMessages, signal, persist, kibanaPublicUrl, isPublic, title: predefinedTitle, conversationId: predefinedConversationId, disableFunctions, }: { messages: ",
+              "({ functionClient, connectorId, simulateFunctionCalling, instructions: adHocInstructions, messages: initialMessages, signal, persist, kibanaPublicUrl, isPublic, title: predefinedTitle, conversationId: predefinedConversationId, disableFunctions, }: { messages: ",
               {
                 "pluginId": "observabilityAIAssistant",
                 "scope": "common",
@@ -8400,27 +8104,35 @@
               },
               "[]; connectorId: string; signal: AbortSignal; functionClient: ",
               "ChatFunctionClient",
-              "; persist: boolean; conversationId?: string | undefined; title?: string | undefined; isPublic?: boolean | undefined; kibanaPublicUrl?: string | undefined; userInstructions?: ",
-              "Instruction",
+              "; persist: boolean; conversationId?: string | undefined; title?: string | undefined; isPublic?: boolean | undefined; kibanaPublicUrl?: string | undefined; instructions?: ",
+              "AdHocInstruction",
               "[] | undefined; simulateFunctionCalling?: boolean | undefined; disableFunctions?: boolean | { except: string[]; } | undefined; }) => ",
               "Observable",
-              "<({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+              "<",
               {
                 "pluginId": "observabilityAIAssistant",
                 "scope": "common",
                 "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.StreamingChatResponseEventType",
-                "text": "StreamingChatResponseEventType"
+                "section": "def-common.ConversationCreateEvent",
+                "text": "ConversationCreateEvent"
               },
-              ".ConversationCreate; }) | ({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+              " | ",
               {
                 "pluginId": "observabilityAIAssistant",
                 "scope": "common",
                 "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.StreamingChatResponseEventType",
-                "text": "StreamingChatResponseEventType"
+                "section": "def-common.ConversationUpdateEvent",
+                "text": "ConversationUpdateEvent"
               },
-              ".ConversationUpdate; }) | ",
+              " | ",
+              {
+                "pluginId": "observabilityAIAssistant",
+                "scope": "common",
+                "docId": "kibObservabilityAIAssistantPluginApi",
+                "section": "def-common.MessageAddEvent",
+                "text": "MessageAddEvent"
+              },
+              " | ",
               {
                 "pluginId": "observabilityAIAssistant",
                 "scope": "common",
@@ -8436,31 +8148,15 @@
                 "section": "def-common.ChatCompletionMessageEvent",
                 "text": "ChatCompletionMessageEvent"
               },
-              " | ({ message: ",
+              " | ",
               {
                 "pluginId": "observabilityAIAssistant",
                 "scope": "common",
                 "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Message",
-                "text": "Message"
+                "section": "def-common.BufferFlushEvent",
+                "text": "BufferFlushEvent"
               },
-              "; id: string; } & { type: ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.StreamingChatResponseEventType",
-                "text": "StreamingChatResponseEventType"
-              },
-              ".MessageAdd; }) | ({ data?: string | undefined; } & { type: ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.StreamingChatResponseEventType",
-                "text": "StreamingChatResponseEventType"
-              },
-              ".BufferFlush; })>"
+              ">"
             ],
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
             "deprecated": false,
@@ -8471,7 +8167,7 @@
                 "id": "def-server.ObservabilityAIAssistantClient.complete.$1",
                 "type": "Object",
                 "tags": [],
-                "label": "{\n    functionClient,\n    connectorId,\n    simulateFunctionCalling = false,\n    userInstructions: apiUserInstructions = [],\n    messages: initialMessages,\n    signal,\n    persist,\n    kibanaPublicUrl,\n    isPublic,\n    title: predefinedTitle,\n    conversationId: predefinedConversationId,\n    disableFunctions = false,\n  }",
+                "label": "{\n    functionClient,\n    connectorId,\n    simulateFunctionCalling = false,\n    instructions: adHocInstructions = [],\n    messages: initialMessages,\n    signal,\n    persist,\n    kibanaPublicUrl,\n    isPublic,\n    title: predefinedTitle,\n    conversationId: predefinedConversationId,\n    disableFunctions = false,\n  }",
                 "description": [],
                 "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
                 "deprecated": false,
@@ -8606,13 +8302,13 @@
                   },
                   {
                     "parentPluginId": "observabilityAIAssistant",
-                    "id": "def-server.ObservabilityAIAssistantClient.complete.$1.userInstructions",
+                    "id": "def-server.ObservabilityAIAssistantClient.complete.$1.instructions",
                     "type": "Array",
                     "tags": [],
-                    "label": "userInstructions",
+                    "label": "instructions",
                     "description": [],
                     "signature": [
-                      "Instruction",
+                      "AdHocInstruction",
                       "[] | undefined"
                     ],
                     "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
@@ -8998,6 +8694,66 @@
           },
           {
             "parentPluginId": "observabilityAIAssistant",
+            "id": "def-server.ObservabilityAIAssistantClient.setTitle",
+            "type": "Function",
+            "tags": [],
+            "label": "setTitle",
+            "description": [],
+            "signature": [
+              "({ conversationId, title }: { conversationId: string; title: string; }) => Promise<",
+              {
+                "pluginId": "observabilityAIAssistant",
+                "scope": "common",
+                "docId": "kibObservabilityAIAssistantPluginApi",
+                "section": "def-common.Conversation",
+                "text": "Conversation"
+              },
+              ">"
+            ],
+            "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
+            "deprecated": false,
+            "trackAdoption": false,
+            "children": [
+              {
+                "parentPluginId": "observabilityAIAssistant",
+                "id": "def-server.ObservabilityAIAssistantClient.setTitle.$1",
+                "type": "Object",
+                "tags": [],
+                "label": "{ conversationId, title }",
+                "description": [],
+                "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
+                "deprecated": false,
+                "trackAdoption": false,
+                "children": [
+                  {
+                    "parentPluginId": "observabilityAIAssistant",
+                    "id": "def-server.ObservabilityAIAssistantClient.setTitle.$1.conversationId",
+                    "type": "string",
+                    "tags": [],
+                    "label": "conversationId",
+                    "description": [],
+                    "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
+                    "deprecated": false,
+                    "trackAdoption": false
+                  },
+                  {
+                    "parentPluginId": "observabilityAIAssistant",
+                    "id": "def-server.ObservabilityAIAssistantClient.setTitle.$1.title",
+                    "type": "string",
+                    "tags": [],
+                    "label": "title",
+                    "description": [],
+                    "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
+                    "deprecated": false,
+                    "trackAdoption": false
+                  }
+                ]
+              }
+            ],
+            "returnComment": []
+          },
+          {
+            "parentPluginId": "observabilityAIAssistant",
             "id": "def-server.ObservabilityAIAssistantClient.create",
             "type": "Function",
             "tags": [],
@@ -9027,109 +8783,6 @@
                 "description": [],
                 "signature": [
                   "ConversationRequestBase"
-                ],
-                "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-                "deprecated": false,
-                "trackAdoption": false,
-                "isRequired": true
-              }
-            ],
-            "returnComment": []
-          },
-          {
-            "parentPluginId": "observabilityAIAssistant",
-            "id": "def-server.ObservabilityAIAssistantClient.updatePartial",
-            "type": "Function",
-            "tags": [],
-            "label": "updatePartial",
-            "description": [],
-            "signature": [
-              "({ conversationId, updates, }: { conversationId: string; updates: Partial<{ public: boolean; archived: boolean; }>; }) => Promise<",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Conversation",
-                "text": "Conversation"
-              },
-              ">"
-            ],
-            "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-            "deprecated": false,
-            "trackAdoption": false,
-            "children": [
-              {
-                "parentPluginId": "observabilityAIAssistant",
-                "id": "def-server.ObservabilityAIAssistantClient.updatePartial.$1",
-                "type": "Object",
-                "tags": [],
-                "label": "{\n    conversationId,\n    updates,\n  }",
-                "description": [],
-                "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-                "deprecated": false,
-                "trackAdoption": false,
-                "children": [
-                  {
-                    "parentPluginId": "observabilityAIAssistant",
-                    "id": "def-server.ObservabilityAIAssistantClient.updatePartial.$1.conversationId",
-                    "type": "string",
-                    "tags": [],
-                    "label": "conversationId",
-                    "description": [],
-                    "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-                    "deprecated": false,
-                    "trackAdoption": false
-                  },
-                  {
-                    "parentPluginId": "observabilityAIAssistant",
-                    "id": "def-server.ObservabilityAIAssistantClient.updatePartial.$1.updates",
-                    "type": "Object",
-                    "tags": [],
-                    "label": "updates",
-                    "description": [],
-                    "signature": [
-                      "{ public?: boolean | undefined; archived?: boolean | undefined; }"
-                    ],
-                    "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-                    "deprecated": false,
-                    "trackAdoption": false
-                  }
-                ]
-              }
-            ],
-            "returnComment": []
-          },
-          {
-            "parentPluginId": "observabilityAIAssistant",
-            "id": "def-server.ObservabilityAIAssistantClient.duplicateConversation",
-            "type": "Function",
-            "tags": [],
-            "label": "duplicateConversation",
-            "description": [],
-            "signature": [
-              "(conversationId: string) => Promise<",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.Conversation",
-                "text": "Conversation"
-              },
-              ">"
-            ],
-            "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-            "deprecated": false,
-            "trackAdoption": false,
-            "children": [
-              {
-                "parentPluginId": "observabilityAIAssistant",
-                "id": "def-server.ObservabilityAIAssistantClient.duplicateConversation.$1",
-                "type": "string",
-                "tags": [],
-                "label": "conversationId",
-                "description": [],
-                "signature": [
-                  "string"
                 ],
                 "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
                 "deprecated": false,
@@ -9221,19 +8874,13 @@
             "label": "getKnowledgeBaseStatus",
             "description": [],
             "signature": [
-              "() => Promise<{ enabled: boolean; errorMessage: string | undefined; endpoint: ",
+              "() => Promise<{ ready: boolean; enabled: boolean; errorMessage: string; endpoint?: undefined; model_stats?: undefined; } | { endpoint: ",
               "InferenceInferenceEndpointInfo",
-              " | undefined; modelStats: ",
-              "MlTrainedModelStats",
-              " | undefined; kbState: ",
-              {
-                "pluginId": "observabilityAIAssistant",
-                "scope": "common",
-                "docId": "kibObservabilityAIAssistantPluginApi",
-                "section": "def-common.KnowledgeBaseState",
-                "text": "KnowledgeBaseState"
-              },
-              "; }>"
+              "; ready: boolean; enabled: boolean; model_stats: { allocation_count: number; deployment_state: ",
+              "MlDeploymentAssignmentState",
+              " | undefined; allocation_state: ",
+              "MlDeploymentAllocationState",
+              " | undefined; }; errorMessage?: undefined; }>"
             ],
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
             "deprecated": false,
@@ -9284,22 +8931,6 @@
             "description": [],
             "signature": [
               "() => Promise<void>"
-            ],
-            "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
-            "deprecated": false,
-            "trackAdoption": false,
-            "children": [],
-            "returnComment": []
-          },
-          {
-            "parentPluginId": "observabilityAIAssistant",
-            "id": "def-server.ObservabilityAIAssistantClient.reIndexKnowledgeBaseWithLock",
-            "type": "Function",
-            "tags": [],
-            "label": "reIndexKnowledgeBaseWithLock",
-            "description": [],
-            "signature": [
-              "() => Promise<boolean>"
             ],
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/server/service/client/index.ts",
             "deprecated": false,
@@ -9572,23 +9203,14 @@
         "label": "createFunctionRequestMessage",
         "description": [],
         "signature": [
-          "({\n  name,\n  args,\n}: { name: string; args?: Record<string, any> | undefined; }) => { message: ",
+          "({\n  name,\n  args,\n}: { name: string; args?: Record<string, any> | undefined; }) => ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
-          },
-          "; id: string; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".MessageAdd; }"
+            "section": "def-common.MessageAddEvent",
+            "text": "MessageAddEvent"
+          }
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/utils/create_function_request_message.ts",
         "deprecated": false,
@@ -9644,23 +9266,14 @@
         "label": "createFunctionResponseMessage",
         "description": [],
         "signature": [
-          "({\n  name,\n  content,\n  data,\n}: { name: string; content: unknown; data?: unknown; }) => { message: ",
+          "({\n  name,\n  content,\n  data,\n}: { name: string; content: unknown; data?: unknown; }) => ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
-          },
-          "; id: string; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".MessageAdd; }"
+            "section": "def-common.MessageAddEvent",
+            "text": "MessageAddEvent"
+          }
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/utils/create_function_response_message.ts",
         "deprecated": false,
@@ -10090,19 +9703,13 @@
           },
           "<\"GET /internal/observability_ai_assistant/kb/status\", undefined, ",
           "ObservabilityAIAssistantRouteHandlerResources",
-          ", { errorMessage?: string | undefined; enabled: boolean; endpoint?: Partial<",
+          ", { errorMessage?: string | undefined; ready: boolean; enabled: boolean; endpoint?: Partial<",
           "InferenceInferenceEndpointInfo",
-          "> | undefined; modelStats?: Partial<",
-          "MlTrainedModelStats",
-          "> | undefined; kbState: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.KnowledgeBaseState",
-            "text": "KnowledgeBaseState"
-          },
-          "; }, ",
+          "> | undefined; model_stats?: { deployment_state?: ",
+          "MlDeploymentAssignmentState",
+          " | undefined; allocation_state?: ",
+          "MlDeploymentAllocationState",
+          " | undefined; allocation_count?: number | undefined; } | undefined; }, ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"POST /internal/observability_ai_assistant/kb/reset\": ",
           {
@@ -10136,7 +9743,7 @@
           "InferenceInferenceEndpointInfo",
           ", ",
           "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\": ",
+          ">; \"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\": ",
           {
             "pluginId": "@kbn/server-route-repository-utils",
             "scope": "common",
@@ -10144,41 +9751,9 @@
             "section": "def-common.ServerRoute",
             "text": "ServerRoute"
           },
-          "<\"POST /internal/observability_ai_assistant/kb/migrations/populate_missing_semantic_text_field\", undefined, ",
+          "<\"POST /internal/observability_ai_assistant/kb/migrations/kb_semantic_text\", undefined, ",
           "ObservabilityAIAssistantRouteHandlerResources",
           ", void, ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/kb/reindex\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"POST /internal/observability_ai_assistant/kb/reindex\", undefined, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", { result: boolean; }, ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"GET /internal/observability_ai_assistant/functions/get_dataset_info\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"GET /internal/observability_ai_assistant/functions/get_dataset_info\", ",
-          "TypeC",
-          "<{ query: ",
-          "TypeC",
-          "<{ index: ",
-          "StringC",
-          "; connectorId: ",
-          "StringC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", { indices: string[]; fields: never[]; stats?: undefined; } | { indices: string[]; fields: string[]; stats: { analyzed: number; total: number; }; }, ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"POST /internal/observability_ai_assistant/functions/summarize\": ",
           {
@@ -10338,64 +9913,6 @@
           },
           "[], ",
           "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"PATCH /internal/observability_ai_assistant/conversation/{conversationId}\", ",
-          "TypeC",
-          "<{ path: ",
-          "TypeC",
-          "<{ conversationId: ",
-          "StringC",
-          "; }>; body: ",
-          "PartialC",
-          "<{ public: ",
-          "BooleanC",
-          "; archived: ",
-          "BooleanC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Conversation",
-            "text": "Conversation"
-          },
-          ", ",
-          "ObservabilityAIAssistantRouteCreateOptions",
-          ">; \"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\": ",
-          {
-            "pluginId": "@kbn/server-route-repository-utils",
-            "scope": "common",
-            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
-            "section": "def-common.ServerRoute",
-            "text": "ServerRoute"
-          },
-          "<\"POST /internal/observability_ai_assistant/conversation/{conversationId}/duplicate\", ",
-          "TypeC",
-          "<{ path: ",
-          "TypeC",
-          "<{ conversationId: ",
-          "StringC",
-          "; }>; }>, ",
-          "ObservabilityAIAssistantRouteHandlerResources",
-          ", ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Conversation",
-            "text": "Conversation"
-          },
-          ", ",
-          "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"DELETE /internal/observability_ai_assistant/conversation/{conversationId}\": ",
           {
             "pluginId": "@kbn/server-route-repository-utils",
@@ -10413,6 +9930,36 @@
           "; }>; }>, ",
           "ObservabilityAIAssistantRouteHandlerResources",
           ", void, ",
+          "ObservabilityAIAssistantRouteCreateOptions",
+          ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\": ",
+          {
+            "pluginId": "@kbn/server-route-repository-utils",
+            "scope": "common",
+            "docId": "kibKbnServerRouteRepositoryUtilsPluginApi",
+            "section": "def-common.ServerRoute",
+            "text": "ServerRoute"
+          },
+          "<\"PUT /internal/observability_ai_assistant/conversation/{conversationId}/title\", ",
+          "TypeC",
+          "<{ path: ",
+          "TypeC",
+          "<{ conversationId: ",
+          "StringC",
+          "; }>; body: ",
+          "TypeC",
+          "<{ title: ",
+          "StringC",
+          "; }>; }>, ",
+          "ObservabilityAIAssistantRouteHandlerResources",
+          ", ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.Conversation",
+            "text": "Conversation"
+          },
+          ", ",
           "ObservabilityAIAssistantRouteCreateOptions",
           ">; \"PUT /internal/observability_ai_assistant/conversation/{conversationId}\": ",
           {
@@ -10585,16 +10132,22 @@
           ">; }>]>; instructions: ",
           "ArrayC",
           "<",
-          "UnionC",
+          "IntersectionC",
           "<[",
-          "StringC",
-          ", ",
-          "TypeC",
+          "PartialC",
           "<{ id: ",
           "StringC",
-          "; text: ",
+          "; }>, ",
+          "TypeC",
+          "<{ text: ",
           "StringC",
-          "; }>]>>; }>]>; }>, ",
+          "; instruction_type: ",
+          "UnionC",
+          "<[",
+          "LiteralC",
+          "<\"user_instruction\">, ",
+          "LiteralC",
+          "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
           "PartialC",
           "<{ body: ",
           "PartialC",
@@ -10685,16 +10238,22 @@
           ">; }>]>; instructions: ",
           "ArrayC",
           "<",
-          "UnionC",
+          "IntersectionC",
           "<[",
-          "StringC",
-          ", ",
-          "TypeC",
+          "PartialC",
           "<{ id: ",
           "StringC",
-          "; text: ",
+          "; }>, ",
+          "TypeC",
+          "<{ text: ",
           "StringC",
-          "; }>]>>; }>]>; }>, ",
+          "; instruction_type: ",
+          "UnionC",
+          "<[",
+          "LiteralC",
+          "<\"user_instruction\">, ",
+          "LiteralC",
+          "<\"application_instruction\">]>; }>]>>; }>]>; }>, ",
           "TypeC",
           "<{ body: ",
           "TypeC",
@@ -11592,20 +11151,6 @@
             "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
             "deprecated": false,
             "trackAdoption": false
-          },
-          {
-            "parentPluginId": "observabilityAIAssistant",
-            "id": "def-common.Conversation.archived",
-            "type": "CompoundType",
-            "tags": [],
-            "label": "archived",
-            "description": [],
-            "signature": [
-              "boolean | undefined"
-            ],
-            "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
-            "deprecated": false,
-            "trackAdoption": false
           }
         ],
         "initialIsOpen": false
@@ -11951,18 +11496,6 @@
       },
       {
         "parentPluginId": "observabilityAIAssistant",
-        "id": "def-common.ConversationAccess",
-        "type": "Enum",
-        "tags": [],
-        "label": "ConversationAccess",
-        "description": [],
-        "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
-        "deprecated": false,
-        "trackAdoption": false,
-        "initialIsOpen": false
-      },
-      {
-        "parentPluginId": "observabilityAIAssistant",
         "id": "def-common.FunctionVisibility",
         "type": "Enum",
         "tags": [],
@@ -11979,18 +11512,6 @@
         "type": "Enum",
         "tags": [],
         "label": "KnowledgeBaseEntryRole",
-        "description": [],
-        "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
-        "deprecated": false,
-        "trackAdoption": false,
-        "initialIsOpen": false
-      },
-      {
-        "parentPluginId": "observabilityAIAssistant",
-        "id": "def-common.KnowledgeBaseState",
-        "type": "Enum",
-        "tags": [],
-        "label": "KnowledgeBaseState",
         "description": [],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/types.ts",
         "deprecated": false,
@@ -12100,7 +11621,7 @@
         "label": "BufferFlushEvent",
         "description": [],
         "signature": [
-          "{ data?: string | undefined; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12108,7 +11629,7 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".BufferFlush; }"
+          ".BufferFlush; } & { data?: string | undefined; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12123,7 +11644,7 @@
         "label": "ChatCompletionChunkEvent",
         "description": [],
         "signature": [
-          "{ id: string; message: { content?: string | undefined; function_call?: { name?: string | undefined; arguments?: string | undefined; } | undefined; }; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12131,7 +11652,7 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".ChatCompletionChunk; }"
+          ".ChatCompletionChunk; } & { id: string; message: { content?: string | undefined; function_call?: { name?: string | undefined; arguments?: string | undefined; } | undefined; }; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12146,15 +11667,7 @@
         "label": "ChatCompletionErrorEvent",
         "description": [],
         "signature": [
-          "{ error: { message: string; stack?: string | undefined; code?: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.ChatCompletionErrorCode",
-            "text": "ChatCompletionErrorCode"
-          },
-          " | undefined; meta?: Record<string, any> | undefined; }; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12162,7 +11675,15 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".ChatCompletionError; }"
+          ".ChatCompletionError; } & { error: { message: string; stack?: string | undefined; code?: ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.ChatCompletionErrorCode",
+            "text": "ChatCompletionErrorCode"
+          },
+          " | undefined; meta?: Record<string, any> | undefined; }; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12177,7 +11698,7 @@
         "label": "ChatCompletionMessageEvent",
         "description": [],
         "signature": [
-          "{ id: string; message: { content?: string | undefined; function_call?: { name?: string | undefined; arguments?: string | undefined; } | undefined; }; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12185,7 +11706,7 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".ChatCompletionMessage; }"
+          ".ChatCompletionMessage; } & { id: string; message: { content?: string | undefined; function_call?: { name?: string | undefined; arguments?: string | undefined; } | undefined; }; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12289,7 +11810,7 @@
         "label": "ConversationCreateEvent",
         "description": [],
         "signature": [
-          "{ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12297,7 +11818,7 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".ConversationCreate; }"
+          ".ConversationCreate; } & { conversation: { id: string; title: string; last_updated: string; }; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12335,7 +11856,7 @@
         "label": "ConversationUpdateEvent",
         "description": [],
         "signature": [
-          "{ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12343,7 +11864,7 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".ConversationUpdate; }"
+          ".ConversationUpdate; } & { conversation: { id: string; title: string; last_updated: string; }; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12358,15 +11879,7 @@
         "label": "MessageAddEvent",
         "description": [],
         "signature": [
-          "{ message: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
-          },
-          "; id: string; } & { type: ",
+          "{ type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12374,7 +11887,15 @@
             "section": "def-common.StreamingChatResponseEventType",
             "text": "StreamingChatResponseEventType"
           },
-          ".MessageAdd; }"
+          ".MessageAdd; } & { message: ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.Message",
+            "text": "Message"
+          },
+          "; id: string; }"
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12389,23 +11910,30 @@
         "label": "StreamingChatResponseEvent",
         "description": [],
         "signature": [
-          "({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
+            "section": "def-common.ConversationCreateEvent",
+            "text": "ConversationCreateEvent"
           },
-          ".ConversationCreate; }) | ({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
+            "section": "def-common.ConversationUpdateEvent",
+            "text": "ConversationUpdateEvent"
           },
-          ".ConversationUpdate; }) | ",
+          " | ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.MessageAddEvent",
+            "text": "MessageAddEvent"
+          },
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12421,47 +11949,22 @@
             "section": "def-common.ChatCompletionMessageEvent",
             "text": "ChatCompletionMessageEvent"
           },
-          " | ({ message: ",
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
+            "section": "def-common.ChatCompletionErrorEvent",
+            "text": "ChatCompletionErrorEvent"
           },
-          "; id: string; } & { type: ",
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".MessageAdd; }) | ({ error: { message: string; stack?: string | undefined; code?: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.ChatCompletionErrorCode",
-            "text": "ChatCompletionErrorCode"
-          },
-          " | undefined; meta?: Record<string, any> | undefined; }; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".ChatCompletionError; }) | ({ data?: string | undefined; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".BufferFlush; })"
+            "section": "def-common.BufferFlushEvent",
+            "text": "BufferFlushEvent"
+          }
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,
@@ -12476,23 +11979,30 @@
         "label": "StreamingChatResponseEventWithoutError",
         "description": [],
         "signature": [
-          "({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
+            "section": "def-common.ConversationCreateEvent",
+            "text": "ConversationCreateEvent"
           },
-          ".ConversationCreate; }) | ({ conversation: { id: string; title: string; last_updated: string; }; } & { type: ",
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
+            "section": "def-common.ConversationUpdateEvent",
+            "text": "ConversationUpdateEvent"
           },
-          ".ConversationUpdate; }) | ",
+          " | ",
+          {
+            "pluginId": "observabilityAIAssistant",
+            "scope": "common",
+            "docId": "kibObservabilityAIAssistantPluginApi",
+            "section": "def-common.MessageAddEvent",
+            "text": "MessageAddEvent"
+          },
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
@@ -12508,31 +12018,14 @@
             "section": "def-common.ChatCompletionMessageEvent",
             "text": "ChatCompletionMessageEvent"
           },
-          " | ({ message: ",
+          " | ",
           {
             "pluginId": "observabilityAIAssistant",
             "scope": "common",
             "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.Message",
-            "text": "Message"
-          },
-          "; id: string; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".MessageAdd; }) | ({ data?: string | undefined; } & { type: ",
-          {
-            "pluginId": "observabilityAIAssistant",
-            "scope": "common",
-            "docId": "kibObservabilityAIAssistantPluginApi",
-            "section": "def-common.StreamingChatResponseEventType",
-            "text": "StreamingChatResponseEventType"
-          },
-          ".BufferFlush; })"
+            "section": "def-common.BufferFlushEvent",
+            "text": "BufferFlushEvent"
+          }
         ],
         "path": "x-pack/platform/plugins/shared/observability_ai_assistant/common/conversation_complete.ts",
         "deprecated": false,

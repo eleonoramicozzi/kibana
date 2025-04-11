@@ -1,7 +1,0 @@
-{
-  "type": "shared-server",
-  "id": "@kbn/profiler-cli",
-  "owner": "@elastic/obs-knowledge-team",
-  "group": "platform",
-  "visibility": "shared"
-}

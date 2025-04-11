@@ -112,7 +112,7 @@
               "\nModel name, e.g. elser"
             ],
             "signature": [
-              "\"elser\" | \"e5\" | \"rerank\""
+              "\"rerank\" | \"elser\" | \"e5\""
             ],
             "path": "x-pack/platform/packages/shared/ml/trained_models_utils/src/constants/trained_models.ts",
             "deprecated": false,
@@ -433,7 +433,7 @@
         "label": "ElasticCuratedModelName",
         "description": [],
         "signature": [
-          "\"elser\" | \"e5\" | \"rerank\""
+          "\"rerank\" | \"elser\" | \"e5\""
         ],
         "path": "x-pack/platform/packages/shared/ml/trained_models_utils/src/constants/trained_models.ts",
         "deprecated": false,

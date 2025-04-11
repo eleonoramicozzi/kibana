@@ -4983,9 +4983,9 @@
             "description": [],
             "signature": [
               {
-                "pluginId": "@kbn/esql-types",
+                "pluginId": "@kbn/esql-validation-autocomplete",
                 "scope": "common",
-                "docId": "kibKbnEsqlTypesPluginApi",
+                "docId": "kibKbnEsqlValidationAutocompletePluginApi",
                 "section": "def-common.ESQLControlVariable",
                 "text": "ESQLControlVariable"
               },

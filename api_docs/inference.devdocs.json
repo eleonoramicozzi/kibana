@@ -133,14 +133,6 @@
                   "section": "def-common.ChatCompleteMetadata",
                   "text": "ChatCompleteMetadata"
                 },
-                " | undefined; maxRetries?: number | undefined; retryConfiguration?: ",
-                {
-                  "pluginId": "@kbn/inference-common",
-                  "scope": "common",
-                  "docId": "kibKbnInferenceCommonPluginApi",
-                  "section": "def-common.ChatCompleteRetryConfiguration",
-                  "text": "ChatCompleteRetryConfiguration"
-                },
                 " | undefined; } & TToolOptions"
               ],
               "path": "x-pack/platform/packages/shared/ai-infra/inference-common/src/chat_complete/api.ts",
@@ -247,7 +239,7 @@
         "label": "naturalLanguageToEsql",
         "description": [],
         "signature": [
-          "({\n  client,\n  connectorId,\n  tools,\n  toolChoice,\n  logger,\n  functionCalling,\n  maxRetries,\n  retryConfiguration,\n  system,\n  metadata,\n  ...rest\n}: ",
+          "({\n  client,\n  connectorId,\n  tools,\n  toolChoice,\n  logger,\n  functionCalling,\n  system,\n  metadata,\n  ...rest\n}: ",
           "NlToEsqlTaskParams",
           "<TToolOptions>) => ",
           "Observable",
@@ -264,7 +256,7 @@
             "id": "def-server.naturalLanguageToEsql.$1",
             "type": "CompoundType",
             "tags": [],
-            "label": "{\n  client,\n  connectorId,\n  tools,\n  toolChoice,\n  logger,\n  functionCalling,\n  maxRetries,\n  retryConfiguration,\n  system,\n  metadata,\n  ...rest\n}",
+            "label": "{\n  client,\n  connectorId,\n  tools,\n  toolChoice,\n  logger,\n  functionCalling,\n  system,\n  metadata,\n  ...rest\n}",
             "description": [],
             "signature": [
               "NlToEsqlTaskParams",
@@ -351,7 +343,7 @@
                 "label": "options",
                 "description": [],
                 "signature": [
-                  "{ [P in \"abortSignal\" | \"metadata\" | \"temperature\" | \"system\" | \"stream\" | \"messages\" | \"modelName\" | \"maxRetries\" | \"retryConfiguration\" | Exclude<keyof TToolOptions, \"connectorId\" | \"functionCalling\">]: ",
+                  "{ [P in \"abortSignal\" | \"metadata\" | \"temperature\" | \"system\" | \"stream\" | \"messages\" | \"modelName\" | Exclude<keyof TToolOptions, \"connectorId\" | \"functionCalling\">]: ",
                   {
                     "pluginId": "@kbn/inference-common",
                     "scope": "common",
@@ -420,15 +412,7 @@
                     "section": "def-common.ChatCompleteMetadata",
                     "text": "ChatCompleteMetadata"
                   },
-                  " | undefined; schema?: TOutputSchema | undefined; retry?: { onValidationError?: number | boolean | undefined; } | undefined; system?: string | undefined; stream?: TStream | undefined; modelName?: string | undefined; maxRetries?: number | undefined; retryConfiguration?: ",
-                  {
-                    "pluginId": "@kbn/inference-common",
-                    "scope": "common",
-                    "docId": "kibKbnInferenceCommonPluginApi",
-                    "section": "def-common.ChatCompleteRetryConfiguration",
-                    "text": "ChatCompleteRetryConfiguration"
-                  },
-                  " | undefined; previousMessages?: ",
+                  " | undefined; schema?: TOutputSchema | undefined; retry?: { onValidationError?: number | boolean | undefined; } | undefined; system?: string | undefined; stream?: TStream | undefined; modelName?: string | undefined; previousMessages?: ",
                   {
                     "pluginId": "@kbn/inference-common",
                     "scope": "common",
@@ -582,14 +566,6 @@
                     "docId": "kibKbnInferenceCommonPluginApi",
                     "section": "def-common.ChatCompleteMetadata",
                     "text": "ChatCompleteMetadata"
-                  },
-                  " | undefined; maxRetries?: number | undefined; retryConfiguration?: ",
-                  {
-                    "pluginId": "@kbn/inference-common",
-                    "scope": "common",
-                    "docId": "kibKbnInferenceCommonPluginApi",
-                    "section": "def-common.ChatCompleteRetryConfiguration",
-                    "text": "ChatCompleteRetryConfiguration"
                   },
                   " | undefined; } & TToolOptions"
                 ],
@@ -947,7 +923,7 @@
             "section": "def-common.ChatCompleteAPI",
             "text": "ChatCompleteAPI"
           },
-          ") => ({ id, connectorId, input, schema, system, previousMessages, modelName, functionCalling, stream, abortSignal, maxRetries, retryConfiguration, metadata, retry, }: DefaultOutputOptions) => Promise<",
+          ") => ({ id, connectorId, input, schema, system, previousMessages, modelName, functionCalling, stream, abortSignal, metadata, retry, }: DefaultOutputOptions) => Promise<",
           {
             "pluginId": "@kbn/inference-common",
             "scope": "common",
@@ -1098,7 +1074,7 @@
         "label": "ChatCompleteRequestBody",
         "description": [],
         "signature": [
-          "{ connectorId: string; system?: string | undefined; temperature?: number | undefined; modelName?: string | undefined; messages: ",
+          "{ connectorId: string; stream?: boolean | undefined; system?: string | undefined; temperature?: number | undefined; modelName?: string | undefined; messages: ",
           {
             "pluginId": "@kbn/inference-common",
             "scope": "common",
@@ -1114,7 +1090,7 @@
             "section": "def-common.FunctionCallingMode",
             "text": "FunctionCallingMode"
           },
-          " | undefined; maxRetries?: number | undefined; retryConfiguration?: { retryOn?: \"all\" | \"auto\" | undefined; } | undefined; } & ",
+          " | undefined; } & ",
           {
             "pluginId": "@kbn/inference-common",
             "scope": "common",

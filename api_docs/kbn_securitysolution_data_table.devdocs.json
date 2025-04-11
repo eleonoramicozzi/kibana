@@ -1228,7 +1228,7 @@
             "section": "def-common.Filter",
             "text": "Filter"
           },
-          "[] | undefined; readonly initialized?: boolean | undefined; readonly isLoading: boolean; readonly dataViewId: string | null; readonly totalCount: number; readonly defaultColumns: (Pick<",
+          "[] | undefined; readonly initialized?: boolean | undefined; readonly isLoading: boolean; readonly dataViewId: string | null; readonly defaultColumns: (Pick<",
           "EuiDataGridColumn",
           ", \"id\" | \"display\" | \"displayAsText\" | \"initialWidth\"> & Pick<",
           "EuiDataGridColumn",
@@ -1270,7 +1270,7 @@
           },
           "[]>; readonly sessionViewConfig: ",
           "SessionViewConfig",
-          " | null; }"
+          " | null; readonly totalCount: number; }"
         ],
         "path": "x-pack/solutions/security/packages/data-table/store/data_table/model.ts",
         "deprecated": false,
@@ -1297,8 +1297,6 @@
           ".alertsOnRuleDetailsPage | ",
           "TableId",
           ".alertsOnAlertsPage | ",
-          "TableId",
-          ".alertsOnAlertSummaryPage | ",
           "TableId",
           ".test | ",
           "TableId",
@@ -1688,8 +1686,6 @@
           "; \"alerts-rules-details-page\": ",
           "TableEntityType",
           "; \"alerts-page\": ",
-          "TableEntityType",
-          "; \"alert-summary-page\": ",
           "TableEntityType",
           "; \"table-test\": ",
           "TableEntityType",

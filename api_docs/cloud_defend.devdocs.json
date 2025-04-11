@@ -97,6 +97,23 @@
     "misc": [
       {
         "parentPluginId": "cloudDefend",
+        "id": "def-public.CLOUD_DEFEND_BASE_PATH",
+        "type": "string",
+        "tags": [],
+        "label": "CLOUD_DEFEND_BASE_PATH",
+        "description": [
+          "The base path for all cloud defend pages."
+        ],
+        "signature": [
+          "\"/cloud_defend\""
+        ],
+        "path": "x-pack/solutions/security/plugins/cloud_defend/public/common/navigation/constants.ts",
+        "deprecated": false,
+        "trackAdoption": false,
+        "initialIsOpen": false
+      },
+      {
+        "parentPluginId": "cloudDefend",
         "id": "def-public.CloudDefendPageId",
         "type": "Type",
         "tags": [],
@@ -704,7 +721,7 @@
         "label": "CloudDefendStatusCode",
         "description": [],
         "signature": [
-          "\"unprivileged\" | \"indexed\" | \"indexing\" | \"index-timeout\" | \"not-deployed\" | \"not-installed\""
+          "\"indexed\" | \"unprivileged\" | \"indexing\" | \"index-timeout\" | \"not-deployed\" | \"not-installed\""
         ],
         "path": "x-pack/solutions/security/plugins/cloud_defend/common/v1.ts",
         "deprecated": false,

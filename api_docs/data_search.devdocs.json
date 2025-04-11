@@ -26425,7 +26425,13 @@
             "text": "IKibanaSearchRequest"
           },
           "<",
-          "EqlSearchRequest",
+          {
+            "pluginId": "data",
+            "scope": "common",
+            "docId": "kibDataSearchPluginApi",
+            "section": "def-common.EqlRequestParams",
+            "text": "EqlRequestParams"
+          },
           ">"
         ],
         "path": "src/platform/plugins/shared/data/common/search/strategies/eql_search/types.ts",
@@ -29184,7 +29190,7 @@
                 "section": "def-common.DataViewLazy",
                 "text": "DataViewLazy"
               },
-              "[]>; clearCache: () => void; clearInstanceCache: (id?: string | undefined) => void; clearDataViewLazyCache: (id: string) => void; getCache: () => Promise<",
+              "[]>; clearCache: () => void; clearInstanceCache: (id?: string | undefined) => void; getCache: () => Promise<",
               "SavedObject",
               "<",
               {
@@ -31358,6 +31364,8 @@
         "label": "EqlRequestParams",
         "description": [],
         "signature": [
+          "EqlSearchRequest",
+          " | ",
           "EqlSearchRequest"
         ],
         "path": "src/platform/plugins/shared/data/common/search/strategies/eql_search/types.ts",
@@ -39753,9 +39761,9 @@
               },
               " | undefined; disableWarningToasts?: boolean | undefined; esqlVariables?: ",
               {
-                "pluginId": "@kbn/esql-types",
+                "pluginId": "@kbn/esql-validation-autocomplete",
                 "scope": "common",
-                "docId": "kibKbnEsqlTypesPluginApi",
+                "docId": "kibKbnEsqlValidationAutocompletePluginApi",
                 "section": "def-common.ESQLControlVariable",
                 "text": "ESQLControlVariable"
               },
@@ -40104,9 +40112,9 @@
               },
               " | undefined; disableWarningToasts?: boolean | undefined; esqlVariables?: ",
               {
-                "pluginId": "@kbn/esql-types",
+                "pluginId": "@kbn/esql-validation-autocomplete",
                 "scope": "common",
-                "docId": "kibKbnEsqlTypesPluginApi",
+                "docId": "kibKbnEsqlValidationAutocompletePluginApi",
                 "section": "def-common.ESQLControlVariable",
                 "text": "ESQLControlVariable"
               },
